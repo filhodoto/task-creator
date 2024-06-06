@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Grid,
+  Typography,
+} from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 const dummyData = {
   users: [
     {
@@ -80,6 +90,9 @@ interface UserProps {
   };
 }
 
+// TODO:: Save this somewhere else
+const API_URL = 'https://dummyjson.com';
+
 const Users = () => {
   const [users, setUsers] = useState<UserProps[]>([]);
 
@@ -89,39 +102,64 @@ const Users = () => {
   }, []);
 
   return (
-    <Grid container spacing={2}>
-      {users.map((user) => {
-        const { id, firstName, lastName, image, email, company } = user;
-        return (
-          <Grid item key={id} xs={12} sm={6} md={4}>
-            <Card
-              sx={{
-                boxShadow: 'lg',
-              }}
-            >
-              <CardContent
+    <>
+      <Typography
+        variant="h4"
+        component="h1"
+        sx={{
+          marginBottom: 4,
+        }}
+      >
+        List of interesting people
+      </Typography>
+
+      <Grid container spacing={2}>
+        {users.map((user) => {
+          const { id, firstName, lastName, image, email, company } = user;
+          return (
+            <Grid item key={id} xs={12} sm={6} md={3}>
+              <Card
                 sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  textAlign: 'center',
+                  boxShadow: 'lg',
                 }}
               >
-                <Avatar src={image} />
-                <Typography variant="h6" component="h2">
-                  {firstName} {lastName}
-                </Typography>
-                <Typography>{company.name}</Typography>
-                <Typography>
-                  {company.title} - {company.department}
-                </Typography>
-                <Typography variant="body2">{email}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        );
-      })}
-    </Grid>
+                <CardContent
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                  }}
+                >
+                  <Avatar src={image} />
+                  <Box paddingY={2}>
+                    <Typography variant="h6" component="h2">
+                      {firstName} {lastName}
+                    </Typography>
+                    <Typography>{company.name}</Typography>
+                    <Typography>
+                      {company.title} - {company.department}
+                    </Typography>
+                    <Typography variant="body2">{email}</Typography>
+                  </Box>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      component={RouterLink}
+                      to={`${id}`}
+                      state={{ userId: id }}
+                    >
+                      view profile
+                    </Button>
+                  </CardActions>
+                </CardContent>
+              </Card>
+            </Grid>
+          );
+        })}
+      </Grid>
+    </>
   );
 };
 

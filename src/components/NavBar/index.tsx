@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import routePages from '@/routes/routePages';
+import { navPages } from '@/routes/routePages';
 import { Link as RouterLink } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
             My Tasks
           </Typography>
           <div style={{ flexGrow: 1 }} />
-          {routePages.map(({ path, title }) => (
+          {navPages.map(({ path, title }) => (
             <Button
               key={title}
               component={RouterLink}

@@ -1,5 +1,6 @@
 import Users from '@pages/Users';
 import TaskList from '@pages/TaskList';
+import UserProfile from '@/pages/UserProfile';
 
 export interface routerProps {
   title: string;
@@ -7,7 +8,8 @@ export interface routerProps {
   element: JSX.Element;
 }
 
-const routePages: routerProps[] = [
+// Define routes for pages that should show in navigation header
+export const navPages: routerProps[] = [
   {
     path: '/',
     element: <TaskList />,
@@ -19,5 +21,16 @@ const routePages: routerProps[] = [
     title: 'users',
   },
 ];
+
+// Define routes for generic pages that won't show on navigation
+const otherPages: routerProps[] = [
+  {
+    path: '/users/*',
+    element: <UserProfile />,
+    title: 'user',
+  },
+];
+
+const routePages = [...navPages, ...otherPages];
 
 export default routePages;
