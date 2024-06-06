@@ -9,7 +9,7 @@ const NavBar: React.FC = () => {
       <Box sx={{ maxWidth: 'xl', width: 1 }}>
         <Toolbar variant="dense">
           <Typography variant="h6" color="inherit" component="div">
-            My Tasks
+            Task Creator
           </Typography>
           <div style={{ flexGrow: 1 }} />
           {navPages.map(({ path, title }) => (
