@@ -7,7 +7,7 @@ export interface routerProps {
   element: JSX.Element;
 }
 
-const pagesData: routerProps[] = [
+const routePages: routerProps[] = [
   {
     path: '/',
     element: <TaskList />,
@@ -20,4 +20,4 @@ const pagesData: routerProps[] = [
   },
 ];
 
-export default pagesData;
+export default routePages;
