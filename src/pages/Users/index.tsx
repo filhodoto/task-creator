@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Card,
+  CardActions,
   CardContent,
   Grid,
   Typography,
@@ -116,7 +117,7 @@ const Users = () => {
         {users.map((user) => {
           const { id, firstName, lastName, image, email, company } = user;
           return (
-            <Grid item key={id} xs={12} sm={6} md={4}>
+            <Grid item key={id} xs={12} sm={6} md={3}>
               <Card
                 sx={{
                   boxShadow: 'lg',
@@ -141,14 +142,17 @@ const Users = () => {
                     </Typography>
                     <Typography variant="body2">{email}</Typography>
                   </Box>
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    component={RouterLink}
-                    to={`users/${id}`}
-                  >
-                    profile
-                  </Button>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      component={RouterLink}
+                      to={`${id}`}
+                      state={{ userId: id }}
+                    >
+                      view profile
+                    </Button>
+                  </CardActions>
                 </CardContent>
               </Card>
             </Grid>
