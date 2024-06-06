@@ -1,10 +1,16 @@
-import './App.css';
+import Router from '@/routes/Routes';
+import NavBar from '@/components/NavBar';
+import { BrowserRouter } from 'react-router-dom';
+import { Container } from '@mui/material';
 
 function App() {
   return (
-    <>
-      <p>Home</p>
-    </>
+    <BrowserRouter>
+      <NavBar />
+      <Container maxWidth="xl">
+        <Router />
+      </Container>
+    </BrowserRouter>
   );
 }
 
