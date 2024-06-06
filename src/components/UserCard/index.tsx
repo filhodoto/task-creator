@@ -12,7 +12,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { UserProps } from '@/store/slices/usersSlice';
 
 const UserCard = (props: UserProps) => {
-  const { id, firstName, lastName, image, email, company } = props;
+  const { id, firstName, lastName, image, email } = props;
   return (
     <Card
       sx={{
@@ -31,10 +31,6 @@ const UserCard = (props: UserProps) => {
         <Box paddingY={2}>
           <Typography variant="h6" component="h2">
             {firstName} {lastName}
-          </Typography>
-          <Typography>{company.name}</Typography>
-          <Typography>
-            {company.title} - {company.department}
           </Typography>
           <Typography variant="body2">{email}</Typography>
         </Box>

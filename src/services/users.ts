@@ -7,7 +7,7 @@ export const usersApi = createApi({
     fetchUserById: builder.query<UserProps, number>({
       query: (id) => `/users/${id}`,
     }),
-    fetchUsers: builder.query<{ users: UserProps[] }, undefined>({
+    fetchUsers: builder.query<{ users: UserProps[] }, void>({
       query: () => '/users',
     }),
   }),
