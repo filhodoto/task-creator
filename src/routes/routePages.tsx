@@ -1,5 +1,6 @@
 import Users from '@pages/Users';
 import TaskList from '@pages/TaskList';
+import UserProfile from '@/pages/UserProfile';
 
 export interface routerProps {
   title: string;
@@ -16,6 +17,11 @@ const routePages: routerProps[] = [
   {
     path: '/users',
     element: <Users />,
+    title: 'users',
+  },
+  {
+    path: '/users/*',
+    element: <UserProfile />,
     title: 'users',
   },
 ];
