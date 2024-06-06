@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
+// TODO:: Remove this slice
 // Define a type for the slice state
-interface UserProps {
+export interface UserProps {
   id: number;
   firstName: string;
   lastName: string;
