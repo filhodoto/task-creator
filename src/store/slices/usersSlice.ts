@@ -14,6 +14,9 @@ export interface UserProps {
     name: string;
     title: string;
   };
+  height: number;
+  age: number;
+  username: string;
 }
 
 interface UsersState {
