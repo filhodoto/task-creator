@@ -9,8 +9,23 @@ import {
   Typography,
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import { UserProps } from '@/store/slices/usersSlice';
 import { useTheme } from '@mui/material/styles';
+
+export interface UserProps {
+  id: number;
+  firstName: string;
+  lastName: string;
+  image: string;
+  email: string;
+  company: {
+    department: string;
+    name: string;
+    title: string;
+  };
+  height: number;
+  age: number;
+  username: string;
+}
 
 const UserCard = (props: UserProps) => {
   const theme = useTheme();

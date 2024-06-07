@@ -1,4 +1,4 @@
-import { UserProps } from '@/store/slices/usersSlice';
+import { UserProps } from '@/components/UserCard';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const usersApi = createApi({
