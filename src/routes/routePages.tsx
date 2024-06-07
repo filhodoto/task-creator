@@ -25,7 +25,7 @@ export const navPages: routerProps[] = [
 // Define routes for generic pages that won't show on navigation
 const otherPages: routerProps[] = [
   {
-    path: '/users/*',
+    path: '/users/:id',
     element: <UserProfile />,
     title: 'user',
   },

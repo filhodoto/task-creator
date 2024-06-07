@@ -1,5 +1,5 @@
 import { useFetchUserByIdQuery } from '@/services/users';
-import { Location, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   Alert,
   Avatar,
@@ -20,16 +20,13 @@ import EmailIcon from '@mui/icons-material/Email';
 import HeightIcon from '@mui/icons-material/Height';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PersonIcon from '@mui/icons-material/Person';
-interface LocationStateProps {
-  userId: number;
-}
 
 const UserProfile = () => {
   const theme = useTheme();
 
-  // Get user id from props passe in link
-  const location: Location<LocationStateProps> = useLocation();
-  const { userId } = location.state;
+  // Get user id from url params
+  // Note:: we use "as" because typescript types id as 'string | undefined' even tho we are certain we will have :id whn we get to this page
+  const { id: userId } = useParams() as { id: string };
 
   const {
     data: profile,
