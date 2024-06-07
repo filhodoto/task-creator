@@ -1,8 +1,8 @@
-import { Fade, Grid, Typography } from '@mui/material';
+import { Alert, Fade, Grid, Typography } from '@mui/material';
 
 import { useFetchUsersQuery } from '@/services/users';
 import UserCard from '@/components/UserCard';
-import QueryFeedback from '@/components/QueryFeedback';
+import CircularLoader from '@/components/CircularLoader';
 
 const Users = () => {
   const { data, error, isLoading, isFetching } = useFetchUsersQuery();
@@ -18,12 +18,13 @@ const Users = () => {
       >
         List of interesting people
       </Typography>
+      {error && (
+        <Alert severity="warning" sx={{ width: 'auto', maxWidth: 500 }}>
+          Something wen't wrong. Retrieve users
+        </Alert>
+      )}
 
-      <QueryFeedback
-        error={error}
-        isLoading={isLoading}
-        isFetching={isFetching}
-      />
+      <CircularLoader isLoading={isLoading} isFetching={isFetching} />
 
       {data && data.users && (
         <Fade in>

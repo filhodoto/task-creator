@@ -1,7 +1,8 @@
 import { useFetchUserByIdQuery } from '@/services/users';
 import { Location, useLocation } from 'react-router-dom';
-import { Box, Typography } from '@mui/material';
-import QueryFeedback from '@/components/QueryFeedback';
+import { Alert, Box, Typography } from '@mui/material';
+import CircularLoader from '@/components/CircularLoader';
+import WarningIcon from '@mui/icons-material/Warning';
 
 interface LocationStateProps {
   userId: number;
@@ -22,11 +23,12 @@ const UserProfile = () => {
 
   return (
     <>
-      <QueryFeedback
-        error={error}
-        isLoading={isLoading}
-        isFetching={isFetching}
-      />
+      <CircularLoader isLoading={isLoading} isFetching={isFetching} />
+      {error && (
+        <Alert severity="warning" sx={{ width: 'auto', maxWidth: 500 }}>
+          Something wen't wrong. Couldn't find user with id {userId}
+        </Alert>
+      )}
       {profile && (
         <Box>
           <Typography variant="h6" component="h2">
