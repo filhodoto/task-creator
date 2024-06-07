@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Fade, Grid, Typography } from '@mui/material';
 
 import { useFetchUsersQuery } from '@/services/users';
 import UserCard from '@/components/UserCard';
@@ -18,22 +18,26 @@ const Users = () => {
       >
         List of interesting people
       </Typography>
+
       <QueryFeedback
         error={error}
         isLoading={isLoading}
         isFetching={isFetching}
       />
-      <Grid container spacing={2}>
-        {data &&
-          data.users &&
-          data.users.map((user) => {
-            return (
-              <Grid item key={user.id} xs={12} sm={6} md={3}>
-                <UserCard {...user} />
-              </Grid>
-            );
-          })}
-      </Grid>
+
+      {data && data.users && (
+        <Fade in>
+          <Grid container spacing={2}>
+            {data.users.map((user) => {
+              return (
+                <Grid item key={user.id} xs={12} sm={6} md={3}>
+                  <UserCard {...user} />
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Fade>
+      )}
     </>
   );
 };

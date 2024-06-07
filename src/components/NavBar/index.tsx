@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
   return (
-    <AppBar position="static" sx={{ marginBottom: 3, alignItems: 'center' }}>
+    <AppBar position="static" sx={{ marginBottom: 6, alignItems: 'center' }}>
       <Box sx={{ maxWidth: 'xl', width: 1 }}>
         <Toolbar variant="dense">
           <Typography variant="h6" color="inherit" component="div">

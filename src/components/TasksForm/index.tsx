@@ -57,7 +57,6 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: theme.spacing(2),
         padding: theme.spacing(3),
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
@@ -68,8 +67,9 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
         {...register('name')}
         placeholder="Task title"
         label="Name"
-        error={!!errors.name} // Show error helper text if there's an error
-        helperText={errors.name?.message} // Set error helper text from validation schema
+        error={!!errors.name}
+        helperText={errors.name?.message}
+        sx={{ marginBottom: theme.spacing(3) }}
       />
       <TextField
         {...register('description')}
@@ -79,6 +79,7 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
         helperText={errors.description?.message}
         multiline
         rows={3}
+        sx={{ marginBottom: theme.spacing(3) }}
       />
       <Button
         variant="contained"
@@ -86,7 +87,7 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
         color="primary"
         sx={{ alignSelf: 'flex-end' }}
       >
-        Create Post
+        Create Task
       </Button>
 
       <Collapse in={showAlert}>
