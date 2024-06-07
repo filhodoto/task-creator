@@ -1,4 +1,3 @@
-import React from 'react';
 import { Alert } from '@mui/material';
 import { TaskProps, deleteTask } from '@/store/slices/tasksSlice';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';

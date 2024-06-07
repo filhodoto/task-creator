@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { navPages } from '@/routes/routePages';
 import { useTheme } from '@mui/material/styles';
