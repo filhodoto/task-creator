@@ -7,6 +7,7 @@ import TextField from '@mui/material/TextField';
 import { useTheme } from '@mui/material/styles';
 import { Alert, Collapse, Paper } from '@mui/material';
 import { TaskProps } from '@/store/slices/tasksSlice';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 
 interface TasksFormProps {
   onSubmit: (data: TaskProps) => void;
@@ -86,12 +87,17 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
         type="submit"
         color="primary"
         sx={{ alignSelf: 'flex-end' }}
+        startIcon={<AddTaskIcon />}
       >
         Create Task
       </Button>
 
       <Collapse in={showAlert}>
-        <Alert variant="outlined" severity="success">
+        <Alert
+          sx={{ marginTop: theme.spacing(3) }}
+          variant="outlined"
+          severity="success"
+        >
           Task created successfully
         </Alert>
       </Collapse>

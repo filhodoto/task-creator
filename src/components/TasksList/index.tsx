@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Typography } from '@mui/material';
+import { Alert } from '@mui/material';
 import { TaskProps, deleteTask } from '@/store/slices/tasksSlice';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
 import TaskItem from '../TaskItem';

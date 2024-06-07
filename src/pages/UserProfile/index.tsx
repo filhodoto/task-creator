@@ -4,6 +4,7 @@ import {
   Alert,
   Avatar,
   Box,
+  Fade,
   List,
   ListItem,
   ListItemText,
@@ -46,98 +47,103 @@ const UserProfile = () => {
         </Alert>
       )}
       {profile && (
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <Paper
+        <Fade in>
+          <Box
             sx={{
               display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              padding: theme.spacing(3),
-              borderRadius: theme.shape.borderRadius,
-              boxShadow: theme.shadows[2],
-              maxWidth: 'sm',
-              width: '100%',
+              justifyContent: 'center',
             }}
           >
-            <Avatar
-              src={profile.image}
+            <Paper
               sx={{
-                width: theme.spacing(15),
-                height: theme.spacing(15),
-                marginBottom: theme.spacing(2),
-              }}
-            />
-            <Typography
-              variant="h4"
-              component="h1"
-              marginBottom={theme.spacing(5)}
-            >
-              {profile.firstName} {profile.lastName}
-            </Typography>
-
-            <List
-              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: theme.spacing(3),
+                borderRadius: theme.shape.borderRadius,
+                boxShadow: theme.shadows[2],
+                maxWidth: 'sm',
                 width: '100%',
-                display: 'grid',
-                gap: 2,
-                gridTemplateColumns: {
-                  sm: 'repeat(2, 1fr)',
-                },
               }}
             >
-              <ListItem>
-                <ListItemIcon>
-                  <BusinessIcon sx={{ fontSize: 50 }} />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Company"
-                  secondary={profile.company.name}
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <WorkIcon sx={{ fontSize: 50 }} />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Position"
-                  secondary={`${profile.company.title} - ${profile.company.department}`}
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <PersonIcon sx={{ fontSize: 50 }} />
-                </ListItemIcon>
-                <ListItemText primary="Username" secondary={profile.username} />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <EmailIcon sx={{ fontSize: 50 }} />
-                </ListItemIcon>
-                <ListItemText primary="Email" secondary={profile.email} />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <HeightIcon sx={{ fontSize: 50 }} />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Height"
-                  secondary={`${profile.height.toFixed(1)} cm`}
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <CalendarTodayIcon sx={{ fontSize: 50 }} />
-                </ListItemIcon>
-                <ListItemText primary="Age" secondary={profile.age} />
-              </ListItem>
-            </List>
-          </Paper>
-        </Box>
+              <Avatar
+                src={profile.image}
+                sx={{
+                  width: theme.spacing(15),
+                  height: theme.spacing(15),
+                  marginBottom: theme.spacing(2),
+                }}
+              />
+              <Typography
+                variant="h4"
+                component="h1"
+                marginBottom={theme.spacing(5)}
+              >
+                {profile.firstName} {profile.lastName}
+              </Typography>
+
+              <List
+                sx={{
+                  width: '100%',
+                  display: 'grid',
+                  gap: 2,
+                  gridTemplateColumns: {
+                    sm: 'repeat(2, 1fr)',
+                  },
+                }}
+              >
+                <ListItem>
+                  <ListItemIcon>
+                    <BusinessIcon sx={{ fontSize: 50 }} />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Company"
+                    secondary={profile.company.name}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <WorkIcon sx={{ fontSize: 50 }} />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Position"
+                    secondary={`${profile.company.title} - ${profile.company.department}`}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <PersonIcon sx={{ fontSize: 50 }} />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Username"
+                    secondary={profile.username}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <EmailIcon sx={{ fontSize: 50 }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Email" secondary={profile.email} />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <HeightIcon sx={{ fontSize: 50 }} />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Height"
+                    secondary={`${profile.height.toFixed(1)} cm`}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CalendarTodayIcon sx={{ fontSize: 50 }} />
+                  </ListItemIcon>
+                  <ListItemText primary="Age" secondary={profile.age} />
+                </ListItem>
+              </List>
+            </Paper>
+          </Box>
+        </Fade>
       )}
     </>
   );
