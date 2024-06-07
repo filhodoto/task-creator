@@ -22,11 +22,15 @@ const NavBar: React.FC = () => {
         >
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <AssignmentTurnedInIcon sx={{ fontSize: 40 }} />
-            <Typography variant="body1" color="inherit" component="div">
+            <Typography
+              variant="body1"
+              color="inherit"
+              sx={{ display: { xs: 'none', sm: 'block' } }}
+            >
               TASK CREATOR
             </Typography>
           </Box>
-          <div>
+          <Box sx={{ display: 'flex' }}>
             {navPages.map(({ path, title }) => (
               <Button
                 key={title}
@@ -34,13 +38,13 @@ const NavBar: React.FC = () => {
                 to={path}
                 color="inherit"
                 size="large"
-                sx={{ marginLeft: theme.spacing(3) }}
+                sx={{ marginLeft: theme.spacing(2) }}
                 startIcon={renderBtnIcon(title)}
               >
                 {title}
               </Button>
             ))}
-          </div>
+          </Box>
         </Toolbar>
       </Box>
     </AppBar>
