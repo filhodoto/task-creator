@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup'; // for validation schema
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useTheme } from '@mui/material/styles';
-import { Paper } from '@mui/material';
+import { Alert, Collapse, Paper } from '@mui/material';
 import { TaskProps } from '@/store/slices/tasksSlice';
 
 interface TasksFormProps {
@@ -20,7 +20,7 @@ const validationSchema = yup.object({
 
 const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
   const theme = useTheme();
-
+  const [showAlert, setShowAlert] = useState(false);
   const {
     register,
     handleSubmit,
@@ -28,6 +28,15 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
     reset,
   } = useForm({ resolver: yupResolver(validationSchema) });
 
+  const showSuccessAlert = () => {
+    // Show success alert
+    setShowAlert(true);
+
+    // hide success alert after 3s
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
+  };
   const onSubmitHandler = (data: Omit<TaskProps, 'id'>) => {
     // Create id to task object, so we can use this value add edit it later
     // NOTE:: in a project for production we would use UUID, or if we store tasks in a DB the if would be created for us
@@ -37,6 +46,9 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
 
     // Clean form after submission
     reset();
+
+    // Show success feedback to user
+    showSuccessAlert();
   };
 
   return (
@@ -55,6 +67,7 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
     >
       <TextField
         {...register('name')}
+        placeholder="Task title"
         label="Name"
         error={!!errors.name} // Show error helper text if there's an error
         helperText={errors.name?.message} // Set error helper text from validation schema
@@ -62,6 +75,7 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
       <TextField
         {...register('description')}
         label="Description"
+        placeholder="Write your task..."
         error={!!errors.description}
         helperText={errors.description?.message}
         multiline
@@ -75,6 +89,12 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
       >
         Create Post
       </Button>
+
+      <Collapse in={showAlert}>
+        <Alert variant="outlined" severity="success">
+          Task created successfully
+        </Alert>
+      </Collapse>
     </Paper>
   );
 };
