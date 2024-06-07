@@ -59,7 +59,6 @@ const TasksForm: React.FC<TasksFormProps> = ({ onSubmit }) => {
         flexDirection: 'column',
         gap: theme.spacing(2),
         padding: theme.spacing(3),
-        backgroundColor: theme.palette.background.paper,
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[2],
       }}
