@@ -1,5 +1,5 @@
 import Users from '@pages/Users';
-import TaskList from '@pages/TaskList';
+import Tasks from '@pages/Tasks';
 import UserProfile from '@/pages/UserProfile';
 
 export interface routerProps {
@@ -12,7 +12,7 @@ export interface routerProps {
 export const navPages: routerProps[] = [
   {
     path: '/',
-    element: <TaskList />,
+    element: <Tasks />,
     title: 'Tasks',
   },
   {
