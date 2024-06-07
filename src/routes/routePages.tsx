@@ -13,7 +13,7 @@ export const navPages: routerProps[] = [
   {
     path: '/',
     element: <TaskList />,
-    title: 'list',
+    title: 'Tasks',
   },
   {
     path: '/users',
