@@ -107,7 +107,6 @@ const TaskItem: React.FC<TaskItemProps> = ({
             <Button
               size="small"
               variant="contained"
-              color="success"
               onClick={() => handleSave()}
             >
               save

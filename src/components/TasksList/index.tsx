@@ -1,5 +1,5 @@
 import { Alert } from '@mui/material';
-import { TaskProps, deleteTask } from '@/store/slices/tasksSlice';
+import { TaskProps, deleteTask, editTask } from '@/store/slices/tasksSlice';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
 import TaskItem from '../TaskItem';
 
@@ -7,14 +7,14 @@ const TasksList = () => {
   const tasks = useAppSelector((state) => state.tasks.tasks);
   const dispatch = useAppDispatch();
   const handleEditTask = (task: TaskProps) => {
-    // Make sure id is passed
-    console.log('Edit task', task);
+    // Update task in state
+    dispatch(editTask(task));
   };
   const handleDeleteTask = (taskId: TaskProps['id']) => {
     // Delete task from state
     dispatch(deleteTask(taskId));
   };
-  console.log(tasks);
+
   return (
     <>
       {tasks.length ? (
