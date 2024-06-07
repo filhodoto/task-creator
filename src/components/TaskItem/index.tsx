@@ -11,6 +11,8 @@ import {
   CardContent,
   CardActions,
   Grow,
+  Tooltip,
+  Divider,
 } from '@mui/material';
 import { TaskProps } from '@/store/slices/tasksSlice';
 
@@ -94,23 +96,27 @@ const TaskItem: React.FC<TaskItemProps> = ({
         >
           {isEditing ? renderEditEl() : renderTextEl()}
         </CardContent>
+        <Divider orientation="horizontal" />
         <CardActions sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <IconButton onClick={() => onDelete(id)}>
-            <DeleteIcon color="error" />
-          </IconButton>
+          <Tooltip title="Delete">
+            <IconButton onClick={() => onDelete(id)}>
+              <DeleteIcon color="error" />
+            </IconButton>
+          </Tooltip>
           {isEditing ? (
             <Button
               size="small"
               variant="contained"
-              color="success"
               onClick={() => handleSave()}
             >
               save
             </Button>
           ) : (
-            <IconButton onClick={() => setIsEditing((prev) => !prev)}>
-              <EditIcon />
-            </IconButton>
+            <Tooltip title="Edit task">
+              <IconButton onClick={() => setIsEditing((prev) => !prev)}>
+                <EditIcon />
+              </IconButton>
+            </Tooltip>
           )}
         </CardActions>
       </Card>

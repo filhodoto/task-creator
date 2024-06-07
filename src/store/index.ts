@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import usersSlice from './slices/usersSlice';
 import tasksSlice from './slices/tasksSlice';
 import { usersApi } from '@/services/users';
 
 export const store = configureStore({
   reducer: {
-    users: usersSlice,
     tasks: tasksSlice, // Add the generated reducer as a specific top-level slice
     [usersApi.reducerPath]: usersApi.reducer,
   },

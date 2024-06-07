@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# Task Creator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Created from a [React + TypeScript + Vite](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) template which _"provides a minimal setup to get React working in Vite with HMR and some ESLint rules"_.
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This application is a CRUD (Create, Read, Update, Delete) web application designed to manage tasks. It interacts with an external API and utilizes a state management library to interact with tasks.
 
-## Expanding the ESLint configuration
+## Run project
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```
+cd my-project
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+npm install
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+For more information see more info in [Vite's guide](https://vitejs.dev/guide/)
+
+## Built with
+
+- React
+- Typescript
+- React Router
+- Redux Toolkit
+- React Hook Form
+- RTK Query
+- Material UI
+- Yup
+
+## Optimizations
+
+- [ ] Separate concepts better
+- [ ] Improve design
+- [ ] Finish TODOS
+- [ ] Remove duplicated code
