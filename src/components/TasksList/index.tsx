@@ -33,7 +33,7 @@ const TasksList = () => {
           })}
         </ul>
       ) : (
-        <Alert variant="filled" severity="info" sx={{ width: 'auto' }}>
+        <Alert severity="info" sx={{ width: 'auto' }}>
           Create some amazing tasks and see them here
         </Alert>
       )}
