@@ -10,13 +10,17 @@ import {
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { UserProps } from '@/store/slices/usersSlice';
+import { useTheme } from '@mui/material/styles';
 
 const UserCard = (props: UserProps) => {
+  const theme = useTheme();
   const { id, firstName, lastName, image, email } = props;
   return (
     <Card
       sx={{
-        boxShadow: 'lg',
+        backgroundColor: theme.palette.background.paper,
+        borderRadius: theme.shape.borderRadius,
+        boxShadow: theme.shadows[2],
       }}
     >
       <CardContent
