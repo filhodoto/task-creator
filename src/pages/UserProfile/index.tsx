@@ -1,7 +1,7 @@
-import React from 'react';
 import { useFetchUserByIdQuery } from '@/services/users';
 import { Location, useLocation } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
+import QueryFeedback from '@/components/QueryFeedback';
 
 interface LocationStateProps {
   userId: number;
@@ -13,12 +13,20 @@ const UserProfile = () => {
 
   const { userId } = location.state;
 
-  const { data: profile, error, isLoading } = useFetchUserByIdQuery(userId);
-  console.log('profile ', profile);
+  const {
+    data: profile,
+    error,
+    isLoading,
+    isFetching,
+  } = useFetchUserByIdQuery(userId);
+
   return (
     <>
-      {isLoading && <Typography>Loading...</Typography>}
-      {error && <Typography color="error">Something wen't wrong</Typography>}
+      <QueryFeedback
+        error={error}
+        isLoading={isLoading}
+        isFetching={isFetching}
+      />
       {profile && (
         <Box>
           <Typography variant="h6" component="h2">

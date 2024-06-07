@@ -10,13 +10,11 @@ export interface TaskProps {
 
 interface TasksState {
   tasks: TaskProps[];
-  currentTask: TaskProps | null;
 }
 
 // Define the initial state using that type
 const initialState: TasksState = {
   tasks: [],
-  currentTask: null,
 };
 
 export const counterSlice = createSlice({

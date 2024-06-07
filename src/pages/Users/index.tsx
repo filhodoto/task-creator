@@ -2,13 +2,11 @@ import { Grid, Typography } from '@mui/material';
 
 import { useFetchUsersQuery } from '@/services/users';
 import UserCard from '@/components/UserCard';
+import QueryFeedback from '@/components/QueryFeedback';
 
 const Users = () => {
-  // TODO:: Type this correctly
-  const { data, error, isLoading } = useFetchUsersQuery();
+  const { data, error, isLoading, isFetching } = useFetchUsersQuery();
 
-  console.log('data >>> ', data);
-  console.log('isLoading >>> ', isLoading);
   return (
     <>
       <Typography
@@ -20,8 +18,11 @@ const Users = () => {
       >
         List of interesting people
       </Typography>
-      {isLoading && <Typography>Loading...</Typography>}
-      {error && <Typography color="error">Something wen't wrong</Typography>}
+      <QueryFeedback
+        error={error}
+        isLoading={isLoading}
+        isFetching={isFetching}
+      />
       <Grid container spacing={2}>
         {data &&
           data.users &&
