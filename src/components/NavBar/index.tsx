@@ -5,6 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import GroupsIcon from '@mui/icons-material/Groups';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 
 const NavBar: React.FC = () => {
   const theme = useTheme();
@@ -19,9 +20,12 @@ const NavBar: React.FC = () => {
           variant="dense"
           sx={{ display: 'flex', justifyContent: 'space-between' }}
         >
-          <Typography variant="h6" color="inherit" component="div">
-            Task Creator
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <AssignmentTurnedInIcon sx={{ fontSize: 40 }} />
+            <Typography variant="body1" color="inherit" component="div">
+              TASK CREATOR
+            </Typography>
+          </Box>
           <div>
             {navPages.map(({ path, title }) => (
               <Button
